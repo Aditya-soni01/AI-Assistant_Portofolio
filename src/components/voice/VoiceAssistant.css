@@ -1,0 +1,202 @@
+.voice-assistant-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(3, 3, 3, 0.72);
+  padding: 1rem;
+}
+
+.voice-assistant-popup {
+  width: min(430px, 100%);
+  border: 1px solid rgba(229, 226, 225, 0.2);
+  border-radius: 14px;
+  background: linear-gradient(160deg, rgba(16, 16, 16, 0.96), rgba(8, 8, 8, 0.96));
+  box-shadow: 0 20px 55px rgba(0, 0, 0, 0.45);
+  padding: 1.5rem;
+}
+
+.voice-assistant-label {
+  margin: 0 0 0.35rem;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #86e6ff;
+}
+
+.voice-assistant-title {
+  margin: 0 0 1rem;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.45rem;
+  color: #f4f4f4;
+}
+
+.voice-assistant-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.voice-assistant-input {
+  width: 100%;
+  border: 1px solid rgba(229, 226, 225, 0.25);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  color: #e5e2e1;
+  font-family: "Inter", sans-serif;
+  font-size: 0.95rem;
+  padding: 0.72rem 0.82rem;
+}
+
+.voice-assistant-input:focus {
+  outline: none;
+  border-color: rgba(134, 230, 255, 0.9);
+}
+
+.voice-assistant-actions {
+  display: flex;
+  gap: 0.65rem;
+}
+
+.voice-assistant-btn {
+  border: 1px solid transparent;
+  border-radius: 999px;
+  cursor: pointer;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.6rem 1rem;
+}
+
+.voice-assistant-btn-primary {
+  background: #d7d3d2;
+  color: #1e1e1e;
+}
+
+.voice-assistant-btn-secondary {
+  border-color: rgba(229, 226, 225, 0.3);
+  background: transparent;
+  color: #e5e2e1;
+}
+
+.voice-assistant-bubble-container {
+  position: fixed;
+  z-index: 110;
+  width: min(258px, calc(100% - 1.25rem));
+  pointer-events: none;
+  touch-action: none;
+  user-select: none;
+  transition: box-shadow 180ms ease;
+  will-change: transform;
+}
+
+.voice-assistant-bubble-container-dragging {
+  z-index: 115;
+}
+
+.voice-assistant-bubble {
+  border: 1px solid rgba(149, 228, 255, 0.28);
+  border-radius: 16px;
+  background: linear-gradient(160deg, rgba(8, 14, 31, 0.56), rgba(8, 10, 24, 0.46));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow:
+    0 10px 24px rgba(0, 0, 0, 0.28),
+    0 0 22px rgba(88, 193, 255, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  padding: 0.52rem 0.6rem;
+  pointer-events: none;
+}
+
+.voice-assistant-drag-handle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.55rem;
+  cursor: grab;
+  pointer-events: auto;
+}
+
+.voice-assistant-bubble-container-dragging .voice-assistant-drag-handle {
+  cursor: grabbing;
+}
+
+.voice-assistant-drag-label {
+  margin: 0;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.56rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(158, 234, 255, 0.85);
+}
+
+.voice-assistant-bubble-text {
+  margin: 0;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 0.74rem;
+  color: #e8f0ff;
+}
+
+.voice-assistant-bubble-rings {
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: -0.1rem 0 0.1rem;
+}
+
+.voice-assistant-interactive {
+  pointer-events: auto;
+}
+
+.voice-assistant-bubble-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.42rem;
+  margin-top: 0.25rem;
+}
+
+.voice-assistant-bubble-btn {
+  border: 1px solid rgba(185, 225, 255, 0.35);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.02);
+  color: #e5f0ff;
+  cursor: pointer;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 0.58rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.34rem 0.58rem;
+  transition:
+    transform 160ms ease,
+    background-color 160ms ease,
+    border-color 160ms ease,
+    box-shadow 160ms ease;
+  pointer-events: auto;
+}
+
+.voice-assistant-bubble-btn:hover {
+  transform: scale(1.03);
+  background: rgba(150, 236, 255, 0.08);
+  border-color: rgba(150, 236, 255, 0.64);
+  box-shadow: 0 0 16px rgba(89, 212, 255, 0.24);
+}
+
+.voice-assistant-bubble-btn:active {
+  transform: scale(0.98);
+}
+
+.voice-assistant-bubble-link {
+  border-color: rgba(157, 169, 255, 0.55);
+  color: #c5ceff;
+}
+
+@media (max-width: 767px) {
+  .voice-assistant-bubble-container {
+    width: min(244px, calc(100% - 1rem));
+  }
+}

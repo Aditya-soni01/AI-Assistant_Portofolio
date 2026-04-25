@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -n \"import.*from.*@data\" \"d:/Agent_APPs/dev-portfolio/src/components/\"*.jsx \"d:/Agent_APPs/dev-portfolio/src/\"*.jsx)",
+      "Bash(node -e \"const icons = require\\('d:/Agent_APPs/dev-portfolio/node_modules/react-icons/si'\\); const a = Object.keys\\(icons\\).filter\\(k => k.toLowerCase\\(\\).includes\\('amazon'\\)\\); console.log\\(a.join\\('\\\\n'\\) || 'none'\\)\")",
+      "Bash(node -e \"const icons = require\\('d:/Agent_APPs/dev-portfolio/node_modules/react-icons/si'\\); ['SiDotnet','SiFastapi','SiDjango','SiGraphql','SiVercel','SiSupabase','SiPrisma','SiJest','SiCypress','SiFigma','SiLinux','SiDocker','SiGit','SiVite','SiPostgresql','SiMongodb','SiRedis','SiPython','SiTypescript','SiJavascript'].forEach\\(n => console.log\\(n+':', typeof icons[n]\\)\\)\")",
+      "Bash(node --input-type=module)"
+    ]
+  }
+}

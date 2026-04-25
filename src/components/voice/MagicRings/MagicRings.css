@@ -1,0 +1,85 @@
+.magic-rings-shell {
+  display: grid;
+  place-items: center;
+  height: 180px;
+  width: 100%;
+  margin-bottom: 0.35rem;
+}
+
+.magic-rings-idle,
+.magic-rings-speaking,
+.magic-rings-thinking,
+.magic-rings-listening {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+}
+
+.magic-rings-idle {
+  filter: drop-shadow(0 0 10px rgba(132, 232, 255, 0.2));
+}
+
+.magic-rings-speaking {
+  filter: drop-shadow(0 0 20px rgba(212, 246, 255, 0.5));
+}
+
+.magic-rings-thinking {
+  filter: drop-shadow(0 0 14px rgba(131, 229, 255, 0.35));
+}
+
+.magic-rings-listening {
+  filter: drop-shadow(0 0 16px rgba(170, 140, 255, 0.45));
+}
+
+.magic-rings-fallback {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+}
+
+.magic-rings-fallback-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid rgba(132, 232, 255, 0.5);
+  animation: magic-rings-pulse 2.5s ease-in-out infinite;
+  box-shadow:
+    0 0 14px rgba(132, 232, 255, 0.35),
+    inset 0 0 10px rgba(160, 120, 255, 0.28);
+}
+
+.magic-rings-fallback-ring-2 {
+  inset: 16px;
+  animation-delay: 0.18s;
+}
+
+.magic-rings-fallback-ring-3 {
+  inset: 32px;
+  animation-delay: 0.36s;
+}
+
+.magic-rings-fallback-speaking .magic-rings-fallback-ring {
+  animation-duration: 1.3s;
+  border-color: rgba(212, 246, 255, 0.85);
+}
+
+.magic-rings-fallback-thinking .magic-rings-fallback-ring {
+  animation-duration: 2.9s;
+}
+
+.magic-rings-fallback-listening .magic-rings-fallback-ring {
+  border-color: rgba(170, 140, 255, 0.8);
+}
+
+@keyframes magic-rings-pulse {
+  0%,
+  100% {
+    transform: scale(0.98);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.03);
+    opacity: 1;
+  }
+}

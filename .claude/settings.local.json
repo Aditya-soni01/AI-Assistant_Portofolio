@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -n \"skill-bar\\\\|bg-skill\" \"d:/Agent_APPs/dev-portfolio/tailwind.config.js\" \"d:/Agent_APPs/dev-portfolio/src/components/\"*.jsx \"d:/Agent_APPs/dev-portfolio/src/styles/\"*.css)"
+    ]
+  }
+}
