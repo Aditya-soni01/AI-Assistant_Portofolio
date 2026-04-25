@@ -62,6 +62,7 @@ const VoiceAssistant = () => {
 
   const bubbleRef = useRef(null);
   const dragMetaRef = useRef({ startX: 0, startY: 0, originX: 0, originY: 0 });
+  const dragPointerIdRef = useRef(null);
   const tourStoppedRef = useRef(false);
   const tourTimeoutRef = useRef(null);
   const dragRafRef = useRef(0);
@@ -152,7 +153,7 @@ Let's get started.`;
   };
 
   const onDragStart = (event) => {
-    if (event.button !== 0) return;
+    if (event.pointerType === "mouse" && event.button !== 0) return;
     const bubble = bubbleRef.current;
     if (!bubble) return;
 
@@ -170,6 +171,8 @@ Let's get started.`;
 
     setPosition(initial);
     setIsDragging(true);
+    dragPointerIdRef.current = event.pointerId;
+    event.currentTarget?.setPointerCapture?.(event.pointerId);
     event.preventDefault();
   };
 
@@ -207,7 +210,10 @@ Let's get started.`;
   useEffect(() => {
     if (!isDragging) return undefined;
 
-    const onMouseMove = (event) => {
+    const onPointerMove = (event) => {
+      if (dragPointerIdRef.current !== null && event.pointerId !== dragPointerIdRef.current) {
+        return;
+      }
       const { startX, startY, originX, originY } = dragMetaRef.current;
       const rawX = originX + (event.clientX - startX);
       const rawY = originY + (event.clientY - startY);
@@ -220,17 +226,23 @@ Let's get started.`;
       });
     };
 
-    const onMouseUp = () => {
+    const onPointerUp = (event) => {
+      if (dragPointerIdRef.current !== null && event.pointerId !== dragPointerIdRef.current) {
+        return;
+      }
+      dragPointerIdRef.current = null;
       setIsDragging(false);
       snapToEdge();
     };
 
-    window.addEventListener("mousemove", onMouseMove, { passive: true });
-    window.addEventListener("mouseup", onMouseUp);
+    window.addEventListener("pointermove", onPointerMove, { passive: true });
+    window.addEventListener("pointerup", onPointerUp);
+    window.addEventListener("pointercancel", onPointerUp);
 
     return () => {
-      window.removeEventListener("mousemove", onMouseMove);
-      window.removeEventListener("mouseup", onMouseUp);
+      window.removeEventListener("pointermove", onPointerMove);
+      window.removeEventListener("pointerup", onPointerUp);
+      window.removeEventListener("pointercancel", onPointerUp);
       if (dragRafRef.current) {
         window.cancelAnimationFrame(dragRafRef.current);
         dragRafRef.current = 0;
@@ -399,7 +411,7 @@ Let's get started.`;
           <div className="voice-assistant-bubble">
             <div
               className="voice-assistant-drag-handle"
-              onMouseDown={onDragStart}
+              onPointerDown={onDragStart}
               onKeyDown={onDragHandleKeyDown}
               role="button"
               tabIndex={0}
@@ -409,7 +421,7 @@ Let's get started.`;
               <p className="voice-assistant-drag-label">Drag</p>
             </div>
 
-            <div className="voice-assistant-bubble-rings voice-assistant-interactive" onMouseDown={onDragStart}>
+            <div className="voice-assistant-bubble-rings voice-assistant-interactive" onPointerDown={onDragStart}>
               <NeonOrb size="tiny" state={assistantState} />
             </div>
 
