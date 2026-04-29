@@ -54,10 +54,15 @@ const Projects = () => {
               ))}
             </div>
 
-            <div className="inline-flex items-center gap-2 font-mono text-xs tracking-[0.1em] text-cyan-100 transition-colors group-hover:text-white">
+            <a
+              href={project.caseStudyUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 font-mono text-xs tracking-[0.1em] text-cyan-100 transition-colors group-hover:text-white"
+            >
               PRODUCT_CASE_STUDY
               <RiArrowRightLine className="h-4 w-4" />
-            </div>
+            </a>
           </article>
         ))}
       </div>

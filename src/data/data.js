@@ -166,6 +166,7 @@ export const projects = [
   {
     id: "rolegenie",
     title: "RoleGenie - AI Resume Optimization SaaS",
+    caseStudyUrl: "https://rolegenieai.com/",
     description:
       "An AI-powered resume and career platform that analyzes resumes against job descriptions, identifies gaps, improves alignment, and generates stronger ATS-friendly resume output.",
     impact: "Built as a practical SaaS product focused on measurable job-readiness outcomes.",
@@ -188,6 +189,7 @@ export const projects = [
   {
     id: "nebula",
     title: "Nebula - AI App Builder on OpenClaw",
+    caseStudyUrl: "https://github.com/Aditya-soni01",
     description:
       "A platform built on top of OpenClaw that enables rapid creation of AI-powered applications using agent workflows, LLM orchestration, and automation pipelines.",
     impact: "Reduced manual setup and accelerated delivery for AI application development cycles.",
@@ -210,6 +212,7 @@ export const projects = [
   {
     id: "stock-analysis-api",
     title: "Stock Analysis API - AI-assisted Market Insight Backend",
+    caseStudyUrl: "https://github.com/Aditya-soni01",
     description:
       "A backend service for stock analysis and trading insights using Python and FastAPI with modular APIs and third-party market data integrations.",
     impact: "Created a clean, extensible backend foundation for intelligent market analysis workflows.",
@@ -224,15 +227,17 @@ export const projects = [
   {
     id: "enterprise-api-optimization",
     title: "Enterprise API Optimization System",
+    caseStudyUrl: "https://github.com/Aditya-soni01",
     description:
-      "Backend optimization work where API response time was reduced by around 50% through SQL stored procedure consolidation, improved query flow, and backend performance tuning.",
+      "Backend optimization work where API response time was reduced by around 50% through SQL stored procedure consolidation, improved query flow, and backend performance tuning. I built a RAG chatbot to retrieve application data quickly and concisely using FastAPI.",
     impact: "Delivered around 50% faster response times for production API workflows.",
     techStack: [
       ".NET Core",
       "SQL Server",
       "Stored Procedures",
       "REST APIs",
-      "Redis",
+      "FastAPI",
+      "RAG Chatbot",
       "React Dashboard Integration",
     ],
     highlights: [
